@@ -1,0 +1,36 @@
+
+version: '3.1'
+
+services:
+  dailyapp:
+    container_name: blog_react
+    image: blog_react
+    restart: always
+    image: daily
+    build: ./
+    ports:
+      - "5555:4444"
+    networks:
+      - blog_default
+    depends_on:
+      - "PostgreSQL"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://PostgreSQL:5432/blog
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+
+  PostgreSQL:
+    container_name: postgres_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=blog
+
+networks:
+  blog_default:
+    name: blog_default
+    driver: bridge

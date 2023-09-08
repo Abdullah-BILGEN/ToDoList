@@ -1,0 +1,53 @@
+
+.todoinput_box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 700px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the box horizontally */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+.bg-icon-color {
+    background-color: #24A2B8;
+    color: white; /* To ensure the icon is visible */
+}
+  
+.todo-button {
+    width: 100%; /* Make the button fill the width of its container */
+    background-color: #24A2B8;
+}
+
+.list-button{
+    background-color: #24A2B8;
+    align-items: center;
+    width: 16.5%;
+}
+
+.delete-button{
+    background-color: #D93649;
+    align-items: center;
+    width: 26.2%;
+}
+
+.table{
+    margin: 0 auto;
+    width: 55%;
+    border-collapse: collapse;
+    
+}
+
+.gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;    
+}
+
+td {
+    text-align:center;
+    border:1px solid lightgrey;
+    background-color: white;
+}
+
+
+.table-todo:hover {
+    background-color: #f0f0f0; /* Change background color on hover for visual feedback */
+}

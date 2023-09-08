@@ -1,0 +1,50 @@
+
+version: '3.1'
+
+services:
+  blogapp:
+    container_name: docker_blog_react
+    image: docker_blog_react
+    restart: always
+    build: ./
+    ports:
+      - "4444:4444"
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/blog?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    networks:
+      - springmysql
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8.0
+    ports:
+      - 3307:3306
+    expose:
+      - "3307"
+
+    networks:
+      - springmysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=blog
+      - MYSQL_USER=ilyas
+      - MYSQL_PASSWORD=root
+    restart: unless-stopped
+
+networks:
+  springmysql:
+    name: springmysql
+    driver: bridge
+
+
+    #services:
+    #  mysql:
+    #    image: 'mysql:latest'
+    #    environment:
+    #      - 'MYSQL_DATABASE=mydatabase'
+    #      - 'MYSQL_PASSWORD=secret'
+    #      - 'MYSQL_ROOT_PASSWORD=verysecret'
+    #      - 'MYSQL_USER=myuser'
+    #    ports:
+    #      - '3306'

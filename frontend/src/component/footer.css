@@ -1,0 +1,15 @@
+.footer_class{
+    color:white;
+}
+/* footer.css */
+
+.footer_class {
+    padding: 10px 0;
+    font-size: 14px;
+    height: 60px;
+}
+
+.footer_class {
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the opacity as needed */
+}
+
