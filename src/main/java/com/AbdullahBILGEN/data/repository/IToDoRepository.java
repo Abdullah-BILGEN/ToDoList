@@ -14,7 +14,7 @@ public interface IToDoRepository extends CrudRepository<ToDoEntity,Long> {
     static void todoServiceUpdateTodoComplete(Long id, ToDoDto.TodoStatus newTodoComplete) {
     }
 
-    // Delivered Query (Kendi sorgumu yazdım)
+    // Delivered Query
     Optional<ToDoEntity> findByTodoContent(String categoryName);
 
     List<ToDoEntity> findByTodoComplete(ToDoDto.TodoStatus todoStatus);
